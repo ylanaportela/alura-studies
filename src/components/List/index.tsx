@@ -1,4 +1,5 @@
 import React from "react";
+import Item from "./Item";
 import style from './List.module.scss'
 
 export default function List(){
@@ -21,10 +22,14 @@ export default function List(){
             <ul>
 
                 {tarefas.map((item,index) => (
-                    <li key={index} className={style.item}>
-                        <h3>{item.tarefa}</h3>
-                        <span>{item.tempo}</span>
-                    </li>
+                    <Item
+                     key={index}
+                    //primeira forma de fazer
+                    //  tarefa={item.tarefa}
+                    //  tempo={item.tempo}
+                     {...item}
+                     //segunda forma de fazer, desestruturação, não recomendado no uso de apis, pois pode vim muitas informações ou dados que necessitam de tipagem 
+                    />
                 ))}
 
             </ul>
